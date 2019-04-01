@@ -7,13 +7,13 @@ const Custo = require('../models/customer');
 const Orderde = require('../models/orderDetail');
 const Emp = require('../models/employee');
 
-
+//เปิดหน้าปกติ
 regisRouter.route('/d1').get(function (req, res) {
   Custo.find(function (err, custo) {
     res.render('บันทึกลูกค้า3', { custo: custo , notFound : false });
   });
 });
-
+//แอดข้อมูล
 regisRouter.route('/d1').post(function (req, res) {
   Custo.find(function (err, custo) {
   var idCustomer = custo.length + 1;
@@ -41,9 +41,9 @@ regisRouter.route('/d1').post(function (req, res) {
     res.redirect('/registration/d1')
   });
 });
-
+//ค้นหา
 regisRouter.route('/d1-search').post(function (req, res) {
-  var search = req.body.search;
+  var search = req.body.search; //สิ่งที่ต้องการค้นหา
   if(search == ""){
     res.redirect('/registration/d1')
   }else{
@@ -62,13 +62,7 @@ regisRouter.route('/d1-search').post(function (req, res) {
     });
   }
 });
-
-
-
-
-
-
-
+//ใบเสร็จการเดินทะเบียน
 regisRouter.route('/d2').get(function (req, res) {
   Regis.findOne({ ID_registration: 1 }, function (err, regis) {
     Order.findOne({ ID_order: regis.ID_order }, function (err, order) {
