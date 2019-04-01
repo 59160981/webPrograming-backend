@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-const billRouter = require('./routes/billRouter');
+const registrationRouter = require('./routes/registrationRouter');
 const mainRouter = require('./routes/mainRouter');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -16,7 +16,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 
-app.use('/bill', billRouter);
+app.use('/registration', registrationRouter);
 app.use('/home', mainRouter);
 
 app.get('/', function (req, res) {
@@ -24,5 +24,5 @@ app.get('/', function (req, res) {
 });
 
 app.listen(port, function(){
-  console.log('Node js Express js Tutorial');
+  console.log('connect to port http://localhost:'+port);
 });

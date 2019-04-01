@@ -6,6 +6,7 @@ function checknull () {
     var home = document.getElementById("home").value;
     var tel = document.getElementById("tel").value;
     var email = document.getElementById("email").value;
+    var emailindex = document.getElementById("email").value.indexOf('@');
     var typecos = document.getElementById("typecos").value;
 
     
@@ -13,7 +14,6 @@ function checknull () {
         alert("กรุณากรอกชื่อ");
     }else if(lname == ""){
         alert("กรุณากรอกนามสกุล");
-       
     }else if(birth =="" ){
         alert("กรุณากรอกวันเกิด");
     }else if(sex ==""){
@@ -22,12 +22,16 @@ function checknull () {
         alert("กรุณากรอกที่อยู่");
     }else if(tel==""){
         alert("กรุณากรอกเบอร์โทรศัพท์");
+    }else if(tel.length != 10 || tel != parseInt(tel)){
+        alert("เบอร์โทรศัพท์ต้องเป็นตัวเลขและมีความยาว 10 ตัวเท่านั้น");
     }else if(email==""){
         alert("กรุณากรอกข้อมูลให้ครบ");
+    }else if(emailindex == -1){
+        alert("อีเมลผิดพลาด");
     }else if(typecos==""){
         alert("กรุณากรอกข้อมูลให้ครบ");
     }else{
         alert("บันทึกข้อมูลสำเร็จ");
-        location.href('./ใบรับทะเบียน.html')
+        document.getElementById('registrationAddCusto').submit();
     }
 }
