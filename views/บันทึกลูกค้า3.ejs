@@ -67,19 +67,23 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th style="text-align: center;width: 100px;">รหัสลูกค้า</th>
+                                <th style="text-align: center; width: 100px;">รหัสลูกค้า</th>
                                 <th style="text-align: center;">ชื่อ</th>
                                 <th style="text-align: center;">นามสกุล</th>
+                                <th style="text-align: center;">หมายเหตุ</th>
                             </tr>
                             <% for(var i=0; i < custo.length; i++) { %>
                             <tr>
                                 <td style="text-align: center;"><%= custo[i].ID_customer %></td>
                                 <td style="text-align: center;"><%= custo[i].firstname %></td>
                                 <td style="text-align: center;"><%= custo[i].lastname %></td>
+                                <td style="text-align: center;">
+                                     <a href="" class="button1" style="width: 50%">เลือก</a>
+                                </td>
                             </tr>
                             <% } %>
                             <% if(notFound) { %>
-                            <td colspan="3" style="text-align :center">ไม่พบข้อมูล</td>
+                            <td colspan="4" style="text-align :center">ไม่พบข้อมูล</td>
                             <% } %>
                         </thead>
                     </table>
