@@ -24,5 +24,5 @@ app.get('/', function (req, res) {
 });
 
 app.listen(port, function(){
-  console.log('connect to port http://localhost:'+port);
+  console.log('connect to port http://localhost:'+port+"/home");
 });

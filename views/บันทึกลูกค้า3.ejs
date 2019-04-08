@@ -33,9 +33,10 @@
     <section class="main">
         <section>
             <div class="column">
-                <form id="registrationAddCusto" action="./d1" method="post">
-                    ชื่อ : <br> <input name="CustomerName" id="fname" type="text"> <br>
-                    นามสกุล : <br> <input name="Customerlastname" id="lname" type="text"> <br>
+                <form id="registrationAddCusto" action="./d1" method="post" >
+                    
+                    ชื่อ : <br> <input name="CustomerName" id="fname" type="text" onkeyup="checkInputFirstName()" onkeypress="checkInputFirstName()" maxlength="20"> <br>
+                    นามสกุล : <br> <input name="Customerlastname" id="lname" type="text" onkeyup="checkInputLastName()" onkeypress="checkInputLastName()" maxlength="20"> <br>
                     วัน/เดือน/ปีเกิด : <br> <input name="CustomerBirth" id="birth" type="date"> <br>
                     เพศ : <br> <select name="CustomerSex" id="sex">
                         <option value="" hidden>โปรดเลือก</option>
@@ -44,8 +45,8 @@
                     </select> <br>
                     ที่อยู่ :<br> <textarea name="CustomerHome" id="home" placeholder="" cols="30" rows="10"></textarea>
                     <br>
-                    เบอร์ติดต่อ : <br> <input name="CustomerTel" id="tel" type="text" maxlength="10"> <br>
-                    E-mail :<br> <input name="CustomerEmail" type="text" id="email"> <br>
+                    เบอร์ติดต่อ : <br> <input name="CustomerTel" id="tel" type="text" onkeyup="checkInputNumber()" onkeypress="checkInputNumber()" maxlength="10"> <br>
+                    E-mail :<br> <input name="CustomerEmail" type="text" id="email" maxlength="20"> <br>
                     ประเภทลูกค้า : <br> <select name="CustomerType" id="typecos">
                         <option value="" hidden>โปรดเลือก</option>
                         <option value="ซื้อ">ซื้อ</option>
@@ -55,11 +56,10 @@
                     </select> <br>
 
                 </form>
-
             </div>
             <div class="column"><br>
                 <form action="./d1-search" method="post">
-                    <input name="search" type="text" style="width: 300px;" placeholder="ID ลูกค้า">
+                    <input name="search" type="text" style="width: 300px;" placeholder="ID ลูกค้า" maxlength="10">
                     <button type="submit" class="button3">ค้นหา</button><br>
                 </form>
 
