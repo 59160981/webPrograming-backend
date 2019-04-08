@@ -47,13 +47,7 @@
                     <br>
                     เบอร์ติดต่อ : <br> <input name="CustomerTel" id="tel" type="text" onkeyup="checkInputNumber()" onkeypress="checkInputNumber()" maxlength="10"> <br>
                     E-mail :<br> <input name="CustomerEmail" type="text" id="email" maxlength="20"> <br>
-                    ประเภทลูกค้า : <br> <select name="CustomerType" id="typecos">
-                        <option value="" hidden>โปรดเลือก</option>
-                        <option value="ซื้อ">ซื้อ</option>
-                        <option value="ขาย">ขาย</option>
-                        <option value="ซ่อม">ซ่อม</option>
-                        <option value="เดินทะเบียน">เดินทะเบียน</option>
-                    </select> <br>
+                    ประเภทลูกค้า : <br> <input name="CustomerType" type="text" id="typecos" maxlength="20" value="เดินทะเบียน" readonly> <br>
 
                 </form>
             </div>
@@ -62,31 +56,35 @@
                     <input name="search" type="text" style="width: 300px;" placeholder="ID ลูกค้า" maxlength="10">
                     <button type="submit" class="button3">ค้นหา</button><br>
                 </form>
-
                 <center>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th style="text-align: center; width: 75px;">รหัสลูกค้า</th>
-                                <th style="text-align: center;">ชื่อ</th>
-                                <th style="text-align: center;">นามสกุล</th>
-                                <th style="text-align: center;">หมายเหตุ</th>
-                            </tr>
-                            <% for(var i=0; i < custo.length; i++) { %>
-                            <tr>
-                                <td style="text-align: center;"><%= custo[i].ID_customer %></td>
-                                <td style="text-align: center;"><%= custo[i].firstname %></td>
-                                <td style="text-align: center;"><%= custo[i].lastname %></td>
-                                <td style="text-align: center;">
-                                     <a href="/registration/d2<%= custo[i].ID_customer %>" class="button1" style="width: 50%">เลือก</a>
-                                </td>
-                            </tr>
-                            <% } %>
-                            <% if(notFound) { %>
-                            <td colspan="4" style="text-align :center">ไม่พบข้อมูล</td>
-                            <% } %>
-                        </thead>
-                    </table>
+                    <div style="width: 530px;
+                    overflow-x: scroll;">
+                            <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th style="text-align: center; width: 75px;">รหัสลูกค้า</th>
+                                            <th style="text-align: center;">ชื่อ</th>
+                                            <th style="text-align: center;">นามสกุล</th>
+                                            <th style="text-align: center;">ประเภทลูกค้า</th>
+                                            <th style="text-align: center;">หมายเหตุ</th>
+                                        </tr>
+                                        <% for(var i=0; i < custo.length; i++) { %>
+                                        <tr>
+                                            <td style="text-align: center;"><%= custo[i].ID_customer %></td>
+                                            <td style="text-align: center;"><%= custo[i].firstname %></td>
+                                            <td style="text-align: center;"><%= custo[i].lastname %></td>
+                                            <td style="text-align: center;"><%= custo[i].customer_type %></td>
+                                            <td style="text-align: center;">
+                                                 <a href="/registration/d2<%= custo[i].ID_customer %>" class="button1" style="width: 50%">เลือก</a>
+                                            </td>
+                                        </tr>
+                                        <% } %>
+                                        <% if(notFound) { %>
+                                        <td colspan="4" style="text-align :center">ไม่พบข้อมูล</td>
+                                        <% } %>
+                                    </thead>
+                                </table>
+                    </div>
                 </center>
             </div>
             <div class="column1">

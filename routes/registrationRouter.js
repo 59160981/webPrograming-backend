@@ -10,7 +10,8 @@ const Invoice = require('../models/invoice');
 
 //เปิดหน้าปกติ
 regisRouter.route('/d1').get(function (req, res) {
-  Custo.find(function (err, custo) {
+  Custo.find({customer_type:'เดินทะเบียน'},function (err, custo) {
+    console.log(custo)
     res.render('บันทึกลูกค้า3', { custo: custo, notFound: false });
   });
 });
